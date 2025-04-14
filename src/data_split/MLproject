@@ -1,0 +1,28 @@
+name: data_split
+conda_env: conda.yml
+
+entry_points:
+  main:
+    parameters:
+      input_artifact:
+        description: The cleaned dataset artifact to split (e.g. clean_sample.csv:latest)
+        type: str
+
+      test_size:
+        description: The fraction of the dataset to allocate for testing (e.g. 0.2)
+        type: float
+
+      random_seed:
+        description: Seed for the random number generator to ensure reproducibility
+        type: int
+
+      stratify_by:
+        description: Column name to stratify the split on (e.g. neighbourhood_group)
+        type: str
+
+      output_artifact:
+        description: Name of the output artifact that will store the split dataset
+        type: str
+
+    command: "python run.py --input_artifact {input_artifact} --test_size {test_size} --random_seed {random_seed} --stratify_by {stratify_by} --output_artifact {output_artifact}"
+
