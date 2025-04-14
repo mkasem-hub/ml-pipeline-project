@@ -4,7 +4,6 @@ conda_env: conda.yml
 entry_points:
   main:
     parameters:
-
       model_export:
         description: Fully-qualified name of the exported model artifact (e.g. random_forest_export:latest)
         type: string
@@ -17,8 +16,5 @@ entry_points:
         description: Name of the output artifact to log the evaluation results (e.g. test_metrics)
         type: string
 
-    command: >-
-      python run.py 
-        --model_export {model_export} 
-        --test_set {test_set} 
-        --output_artifact {output_artifact}
+    command: >
+      python run.py --model_export {model_export} --test_set {test_set} --output_artifact {output_artifact}

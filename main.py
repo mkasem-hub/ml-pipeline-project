@@ -15,7 +15,7 @@ _steps = [
     # NOTE: We do not include this in the steps so it is not run by mistake.
     # You first need to promote a model export to "prod" before you can run this,
     # then you need to run this step explicitly
-    # "test_regression_model"
+    "test_regression_model"
 ]
 
 # This automatically reads in the configuration
@@ -107,10 +107,16 @@ def go(config: DictConfig):
             )
 
         if "test_regression_model" in active_steps:
-            ##################
-            # Implement here #
-            ##################
-            pass
+            _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "test_regression_model"),
+                "main",
+                parameters={
+                    "model_export": "random_forest_export:latest",
+                    "test_set": "split_data.csv:latest",
+                    "output_artifact": "test_metrics.json"
+                }
+            )
+
 
 if __name__ == "__main__":
     go()
