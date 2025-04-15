@@ -43,8 +43,13 @@ Train Random Forest: Train and evaluate a regression model
 
 Test Model: Evaluate the promoted model on a hold-out test set
 
+## 🔗 Links
 
+- 📁 **GitHub Repository**:  
+  [https://github.com/mkasem-hub/ml-pipeline-project]
+
+- 📊 **W&B Project Workspace**:  
+  [https://wandb.ai/mostafa-kasem-a-/nyc_airbnb]
 
 Author: Mostafa Kasem
 Course: Udacity ML DevOps Engineer Nanodegree
-https://wandb.ai/mostafa-kasem-a-/nyc_airbnb
